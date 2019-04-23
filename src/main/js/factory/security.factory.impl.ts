@@ -17,6 +17,7 @@ export class SecurityFactoryImpl implements SecurityFactory {
      * 
      */
     public getAuthenticationManager(): AuthenticationManager {
+        /* istanbul ignore else */
         if (this.authenticationManager == null) {
             this.authenticationManager = new AuthenticationManagerImpl();
         }
@@ -27,6 +28,7 @@ export class SecurityFactoryImpl implements SecurityFactory {
      * 
      */
     public getAuthorizationManager(): AuthorizationManager {
+        /* istanbul ignore else */
         if (this.authorizationManager == null) {
             this.authorizationManager = new AuthorizationManagerImpl();
         }

@@ -64,9 +64,9 @@ describe("Unit test for AuthorizationManagerImpl.", () => {
             expect(manager.hasRole(testRole)).toEqual(false);
         });
 
-       /* test("hasRole method should throw error when given roles is empty.", () => {
-            expect(manager.hasRole(null)).toThrow(Error);
-        });*/
+       test("hasRole method should throw error when given roles is empty.", () => {
+            expect(() => {manager.hasRole(null)}).toThrow(Error);
+        });
 
         test("hasRoles method should return true for given exsiting roles of AuthUser.", () => {
             expect(manager.hasRoles(testRoles)).toEqual(true);
@@ -75,6 +75,10 @@ describe("Unit test for AuthorizationManagerImpl.", () => {
         test("hasRoles method should return false for given non exsiting single role of AuthUser.", () => {
             testRoles.add("non-exist-role");
             expect(manager.hasRoles(testRoles)).toEqual(false);
+        });
+
+        test("hasRoles method should throw error when given roles is empty.", () => {
+            expect(() => {manager.hasRoles(null)}).toThrow(Error);
         });
 
         test("hasAnyRole method shoud return true for existing roles of AuthUser.", () => {
@@ -86,6 +90,10 @@ describe("Unit test for AuthorizationManagerImpl.", () => {
             singleRole.add(testRole + "$");
             singleRole.add(testRole + "%");
             expect(manager.hasAnyRoles(singleRole)).toEqual(false);
+        });
+
+        test("hasAnyRoles method should throw error when given roles is empty.", () => {
+            expect(() => {manager.hasAnyRoles(null)}).toThrow(Error);
         });
 
         describe("Test suite for isLogged method.", () => {

@@ -1,0 +1,37 @@
+{
+	"tags":
+	{
+		"allowUnknownTags" : true
+	},
+	"plugins":[
+		 "plugins/markdown"
+		,"/Users/zain/AppData/Roaming/npm/node_modules/tsdoc/template/plugins/TSDoc.js"
+	],
+	"opts":
+	{
+		"template"	:"/Users/zain/AppData/Roaming/npm/node_modules/tsdoc/template",
+		"recurse"	:"true"
+	},
+	"templates" : {
+		"cleverLinks"     : false,
+		"monospaceLinks"  : false
+	},
+	"source":
+	{
+		"includePattern": "(\\.d)?\\.ts$"
+	},
+	"markdown"  : {
+		"parser"   : "gfm",
+		"hardwrap" : true
+	},
+	"tsdoc":{
+		"source"		:"/projects/github/web-security/src/main/js/manager",
+		"destination"	:"/projects/github/web-security/docs",
+		"tutorials"		:"",
+		"systemName"	: "web-security",
+		"footer"		: "",
+		"copyright"		: "web-security Copyright © 2019 zain.",
+		"outputSourceFiles" : true,
+		"commentsOnly": true
+	}
+}

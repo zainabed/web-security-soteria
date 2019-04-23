@@ -1,0 +1,22 @@
+{
+    "plugins": [
+        "plugins/markdown",
+        "plugins/summarize"
+    ],
+    "recurseDepth": 10,
+    "source": {
+        "include": [ "src/main/js"],
+        "exclude": [ "src/test/js"],
+        "includePattern": ".+\\.ts(doc|x)?$",
+        "excludePattern": "(^|\\/|\\\\)_"
+    },
+    "sourceType": "module",
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": ["jsdoc","closure"]
+    },
+    "opts": {
+        "template": "./node_modules/tsd-jsdoc/dist",
+        "recurse" : true
+    }
+}

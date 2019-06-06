@@ -1,5 +1,5 @@
 import { SecurityFactoryImpl } from "../../main/js/factory/security.factory.impl";
-import { register } from "../../main/js/security";
+import { RegisterSecurity } from "../../main/js/security";
 import { Security } from "@zainabed/security";
 
 
@@ -9,7 +9,7 @@ jest.mock("@zainabed/security");
 describe("Unit test for SecurityImpl class.", () => {
     
     test("register method should call registerSecurityFactory method of Security class.", () => {
-        register();
+        RegisterSecurity();
         expect(Security.registerSecurityFactory).toHaveBeenCalled();
     });
 });

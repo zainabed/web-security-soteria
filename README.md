@@ -7,6 +7,8 @@ These validation can be performed on application routing or on REST API calls.
 
 It is an implementation of [@zainabed/security](https://github.com/zainabed/web-client-security) specification APIs.
 
+[![Build Status](https://dev.azure.com/zainabed/web-security-soteria/_apis/build/status/zainabed.web-security-soteria?branchName=master)](https://dev.azure.com/zainabed/web-security-soteria/_build/latest?definitionId=3&branchName=master)
+
 ## Concept
 
 Single page application requires authentication & authorization system to gaurd application and its components from unauthorized user.

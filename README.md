@@ -1,13 +1,17 @@
 
-# @zainabed/soteria
+
+# @zainabed/soteria 
+[![Build Status](https://dev.azure.com/zainabed/web-security-soteria/_apis/build/status/zainabed.web-security-soteria?branchName=master)](https://dev.azure.com/zainabed/web-security-soteria/_build/latest?definitionId=3&branchName=master)
+
 
 Single page application security, It reduces amount of HTTP server calls by providing client side authorization.
 It provides APIs to validate user permissions against the secure area of application without consulting with server APIs.  
 These validation can be performed on application routing or on REST API calls. 
 
+![@zainabed/soteria](https://github.com/zainabed/web-security-soteria/blob/master/zainabed-typescript-security.png)
+
 It is an implementation of [@zainabed/security](https://github.com/zainabed/web-client-security) specification APIs.
 
-[![Build Status](https://dev.azure.com/zainabed/web-security-soteria/_apis/build/status/zainabed.web-security-soteria?branchName=master)](https://dev.azure.com/zainabed/web-security-soteria/_build/latest?definitionId=3&branchName=master)
 
 ## Concept
 

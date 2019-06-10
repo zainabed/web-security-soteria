@@ -15,21 +15,21 @@ It is an implementation of [@zainabed/security](https://github.com/zainabed/web-
 
 ## Concept
 
-Single page application requires authentication & authorization system to gaurd application and its components from unauthorized user.
+Single page application requires authentication & authorization system to guard application and its components from unauthorized user.
 
-Authentication validates user by verifings its identify and allow user to access secure area of application.
+Authentication validates user by verifying its identify and allow user to access secure area of application.
 if verification fails then it rejects access to those secure area.
 As authentication is concern of Server side script, on client side we need to maintain the reference of authenticated user object (Access Token).
 
 On other hand authorization take action when user is authenticated and has granted permission to secure area of application.
-Application can be divided into different areas according to different previlages like some area could be open to everyone and some could be secure for ADMIN user only. 
+Application can be divided into different areas according to different privileges like some area could be open to everyone and some could be secure for ADMIN user only. 
 Authorization validates users permission against permission assign to different area of application.
 
 Library provide two fundamental security interfaces, authentication & authorization managers.
 And these interfaces can be obtain from `SecurityFactory` class.
 
 
-```javascript
+```JavaScript
 
 import { Security, SecurityFactory, AuthenticationManager, AuthorizationManager} from  "@zainabed/security";
 
@@ -53,7 +53,7 @@ npm install @zainabed/soteria
 
 Then you need to register this service for your application.
 
-```javascript
+```JavaScript
 
 import { RegisterSecurity } from  "@zainabed/soteria";
 RegisterSecurity();
@@ -72,22 +72,22 @@ User authentication should happen at server side ( not inside client side ) and 
 Role of `AuthenticationManager` interface of `@zainabed/security` is to maintain the reference of authenticated user object.
 It can be done by creating a class which implements `AuthUser` interface.
 
-```javascript
+```JavaScript
 
 import { AuthUser } from "@zainabed/security";
 
 class User implements AuthUser {
 
-  // implements abastract methods.
+  // implements abstract methods.
 
   // create a constructor to access authentication response and set
-  // username, credentails, authorization roles and account validity factores. 
+  // username, credentials, authorization roles and account validity. 
 }
 
 ```
 when authenticated user object is received from server API ( as JWT token ) convert it into `AuthUser` object.
 
-```javascript
+```JavaScript
 // sample authentication api success call
 
 onSuccessfulAuthentication( response : any ) {
@@ -101,41 +101,41 @@ onSuccessfulAuthentication( response : any ) {
 
 ```  
 
->  **Note:** `AuthUser` help us to fetch usefull information about authenticated user like its username, credentails, authorization roles/permissions and account validity factores.
+>  **Note:** `AuthUser` help us to fetch useful information about authenticated user like its username, credentials, authorization roles/permissions and account validity.
 
 Once you set `AuthUser` inside authentication manager, you can access it from any part of you application.
 
-```javascript
+```JavaScript
 
     let user: AuthUser = authenticationManager.get();
 
 ```
 
-and call `reset` method to remove authenticated user referencec from autnetication manager. 
+and call `reset` method to remove authenticated user reference from authentication manager. 
 usually you would do it when you perform logout operation.
 
-```javascript
+```JavaScript
     authenticationManager.reset();
 ```
 
 
 ## Authorization
 
-Authorization is key feature of this library. once user is authenticated then libaray gaurd application component using
+Authorization is key feature of this library. once user is authenticated then library guards application component using
 user credentials & roles.
 
 first get instance of `AuthorizationManager` as
 
-```javascript
+```JavaScript
     let  secuirtyFactor: SecurityFactory = Security.getSecurityFactory();
     let  authorizationManager: AuthorizationManager = securityFactory.getAuthorizationManager();
 ```
 
-Then formart set of authorization operations as
+Then format set of authorization operations as
 
 **1.** User logged in or not
 
-```javascript
+```JavaScript
     if( authorizationManager.isLogged() ) {
         // do stuff
     } else {
@@ -145,7 +145,7 @@ Then formart set of authorization operations as
 
 **2.** If user as has single role as `USER` verify it as
 
-```javascript
+```JavaScript
     if( authorizationManager.hasRole('USER') ) {
         // do stuff
     } else {
@@ -158,7 +158,7 @@ make sure that you need to set user roles when you instantiate `AuthUser` class.
 
 **3.** If user as has set of roles as `USER` & `ADMIN` verify it as
 
-```javascript
+```JavaScript
     let roles : Set<string> = new Set(['USER', 'ADMIN']);
 
     if( authorizationManager.hasRoles(roles) ) {
@@ -170,7 +170,7 @@ make sure that you need to set user roles when you instantiate `AuthUser` class.
 
 **4.** If user as has any of given roles as `USER` & `ADMIN` verify it as
 
-```javascript
+```JavaScript
     let roles : Set<string> = new Set(['USER', 'ADMIN']);
 
     if( authorizationManager.hasAnyRoles(roles) ) {
@@ -180,4 +180,3 @@ make sure that you need to set user roles when you instantiate `AuthUser` class.
     }
 ```
 >  **Note:** Role names are case sensitive, `USER` will not match with `user` or `User`.
-
